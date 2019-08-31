@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rephrase</title>
+</head>
+<body>
+    <!---->
+    <div style="float: left; width:33.3%">
+    <div id="1">1</div>
+    <div id="2">2</div>
+    <div id="3">3</div>
+    <div id="4">4</div>
+    <div id="5"></div>
+    <div id="6"></div>
+    <div id="7"></div>
+    <div id="8"></div>
+    <div id="9"></div>
+    <div id="10"></div>
+    </div>
+    <div style='float:left'>
+    <div id="11">11</div>
+    <div id="12">12</div>
+    <div id="13">13</div>
+    <div id="14">14</div>
+    <div id="15"></div>
+    <div id="16"></div>
+    <div id="17"></div>
+    <div id="18"></div>
+    <div id="19"></div>
+    <div id="20"></div>
+</div>
+<script>
+const array = [1,2,3,4,5,6,7]
+const array2 = ['chi','boy','girl','man']
+const array3 = [1,2,1,2,5,6,5]
+const object = {key: 1, value:'one'}
+
+//working with for loop
+for(let i = 0; i < array.length; i++){
+    document.getElementById('1').innerHTML += ('# am index ' + i + ' ' + array[i])
+};
+var result = array.reverse()
+document.getElementById('2').innerHTML = result;
+var obj ={}
+//var t = array2.toString()
+//console.log(t)
+  array2.map((v, i) => {
+    if(!obj[v]){
+        obj[v] = [i]
+    }else{
+        obj[v].push(i) 
+    }
+});
+Object.keys(obj).map(function(v){
+    obj[v] = obj[v.length]
+})
+console.log(obj)
+obj2 = {}
+array2.forEach((a,b) => {
+    console.log()
+    if(!obj2[a]){
+        obj2[a] = [b]
+    }else{
+        obj2[a].push(b)
+    }
+    //return [v]
+})
+console.log(obj2)
+   //Object.keys(obj2).map(function(a) {
+    // obj2[a] = obj2[a].length
+  // })
+</script>
+</body>
+</html>
