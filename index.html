@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>sample learning</title>
-</head>
-<body>
-    <strong>Sonnet 18</strong> is perhaps the most famous, and begins like this:
-</p>
-<blockquote>
-  <p> 
-    Shall I compare thee to a summer's day?<br>
-    Thou art more lovely and more temperate.<br>
-    Rough winds do shake the darling buds of May,<br>
-    And summer's lease hath all too short a date.
-  </p>
-</blockquote>
-<h1>come here</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore vel voluptatibus consectetur. Culpa quos ad rerum maiores voluptates eveniet cum provident natus, eligendi assumenda libero sit voluptatum at molestiae corrupti?</p>
+  </head>
+  <body>
 
+    <form action="javascript:;" id="form">
+      <input type="search" name="search" id="sa" placeholder="search num">
+      <button onclick="searchV(this)">search</button>
+
+      <input type="text" id="input" placeholder="text">
+    </form>
+
+    <button onclick="inputValue(this)">add</button>
+    <button onclick="display(this)">display</button>
+
+    <p id="para">here</p>
+    <strong>Sonnet 18</strong> is perhaps the most famous, and begins like this:
+  </p>
+  <blockquote>
+    <p> 
+      Shall I compare thee to a summer's day?<br>
+      Thou art more lovely and more temperate.<br>
+      Rough winds do shake the darling buds of May,<br>
+      And summer's lease hath all too short a date.
+    </p>
+  </blockquote>
+  <h1>come here</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore vel voluptatibus consectetur. Culpa quos ad rerum maiores voluptates eveniet cum provident natus, eligendi assumenda libero sit voluptatum at molestiae corrupti?</p>
+  
+  <script src="exercise.js"></script>
+  <!---script src="../sample_website/practice.js"></script-->
 <script>
+
+var arr =  [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+var arrs =  [6,5,7,18,9, 26, 7];
+
+for(i in arrs){
+console.log (i%2==0 && i%3==0)
+}
+//console.log(i)
+  //var i = 'am happy'
+//console.log(i)
+function isarr(inpu){
+//var input = document.createElement('input') 
+if(inpu instanceof Array){
+    console.log('true');
+}else{
+    console.log('false');
+}
+return inpu
+}
+console.log(isarr())
   //spliting array into two in equal length
 var array = [1,2,3,4,5];
 var point = 3
@@ -36,7 +70,8 @@ function chuck(arr,n){
   var chunkLength = Math.max(arr.length/n  )
   var chunks = []
   for (i =0; i < n; i++){
-    if(chunkLength*(i + 1) <= arr.length)chunks.push(arr.slice(chunkLength*i, chunkLength*(i + 1)));
+    if(chunkLength*(i + 1) <= arr.length)
+    chunks.push(arr.slice(chunkLength*i, chunkLength*(i + 1)));
   }
   return chunks;
 }
@@ -47,6 +82,45 @@ var p1 = array;
 p2 = p1.splice(3)
 
 console.log(p1,p2)
+
+
+
+ let  t2;
+m = function (t1, ){
+  //t1 = array;
+ t2 = t1.splice(3)
+ console.log(t1,t2)
+ if(t1.length + t2.length !== t1.length){
+   var q = [t1.length , t2.length]
+ }else if(t1.length % 2 === -1){
+   return -1
+ } //{return -1}
+ console.log(q)
+}
+m([1,2,3,4,5,6], t2)
+m([4,5,7,8,9,10,12], t2);
+var ar = ['chi', 'girl','chi', 'a'];
+var ar2 = []
+var obj = {}
+function split(a){
+ a.reduce((orig, numb) =>{
+   if(orig.indexOf(numb) === -1){
+   // console.log(orig)
+  orig.push(numb);
+}
+return orig
+ },[])
+ a.forEach(function (c,d) {
+ if(!obj[c]){
+obj[c] = [c.length]
+ }  
+
+ })
+
+}
+console.log(split(['chi', 'girl','chi', 'a']))
+
+
 </script>
 </body>
 </html>
