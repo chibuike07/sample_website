@@ -1,5 +1,4 @@
-
-alert('hello world')
+// alert('hello world')
 /*var name = 'dog';
 name === 'do' ? console.log('is true'): console.log( 'is not')
 name === 'dog' ? console.log('is true'): console.log( 'is not')//returns the param u set 
@@ -196,3 +195,33 @@ const arrIterator = () =>{
   }
 }
 arrIterator()*/
+
+function getConsonants(array, string1) {
+  let arr = [];
+  let strArr = string1.split("");
+  array.map(v => {
+    if (string1.toLowerCase().includes(v)) {
+      arr.push(v);
+    }
+  });
+  let res = strArr.filter(v => {
+    return !arr.includes(v.toLowerCase());
+  });
+  console.log(res);
+}
+getConsonants(["a", "e", "i", "o", "u"], "chibUikE");
+
+function Dog(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+Dog.prototype.bark = function() {
+  console.log("whoo whoo");
+};
+let dog1 = new Dog("chikwakwa", "red");
+let dog2 = new Dog("chikwakwa", "red");
+// let dog3 = dog1.bark();
+// console.log(dog1);
+// console.log(dog2);
+// console.log(dog3);

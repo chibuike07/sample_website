@@ -17,16 +17,16 @@ console.log(Array.from(array));
 //Write a JavaScript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array
 function finde(index) {
   for (let i = 0; i < index.length; i++) {
-    return array[1];
+    return array[0];
   }
-  return index;
+  // return index;
 }
 console.log(finde([[1, 3, 4, 5]]));
 console.log(finde([[4, 6, 4, 5]]));
 
 //Write a simple JavaScript program to join all elements of the following array into a string
 function joins(array) {
-  let ar = array.join();
+  let ar = array.join("");
   //let r = ar.toString()
   return ar;
 }
@@ -816,8 +816,8 @@ diagonalDifference([
 // 8 6 6
 
 function hourglass(arr) {
-  for(let a in arr){
-console.log(a)
+  for (let a in arr) {
+    console.log(a);
   }
 }
 hourglass([
