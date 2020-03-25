@@ -138,22 +138,7 @@ const removeFalsey = (arr, target) => {
   return arr.filter(v => v < target);
 };
 console.log(removeFalsey([1, 2, 3, 4, 5], 3));
-const removeFalse = (arr, target) => {
+const removeFalse = arr => {
   return arr.filter(Boolean);
 };
-console.log(
-  removeFalse([
-    0,
-    1,
-    false,
-    2,
-    "",
-    3,
-    "a",
-    "e" * 23,
-    NaN,
-    "s",
-    34,
-    { chi: "name" }
-  ])
-);
+console.log(removeFalse([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]));

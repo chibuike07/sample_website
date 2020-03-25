@@ -85,7 +85,7 @@ const get3sumequaltoZero = nums => {
         if (i == b || 1 == c) {
           continue;
         }
-        if (nums[i] + nums[b] + nums[c] == 0) {
+        if (nums[i] + nums[b] + nums[c] === 0) {
           arr.push(nums[i], nums[b], nums[c]);
         }
       }
@@ -177,30 +177,56 @@ const get3sumequaltoZero = nums => {
 
 // findContiguousSubStrThatSumUpToGetLargestSum([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
 
+// const addOneToTheLastVAlueInTheArray = arr => {
+//   let len = arr.length - 1;
+//   let result;
+//   result = arr[len];
+//   let res = arr.map(value => {
+//     if (result == value) {
+//       value++;
+
+//       if (value % 2 === 0) {
+//         let c = value
+//           .toString()
+//           .split("")
+//           .map(Number);
+//         return c;
+//       }
+//     }
+//     return value;
+//   });
+//   return res
+//     .toString()
+//     .split(",")
+//     .map(v => parseInt(v));
+// };
 const addOneToTheLastVAlueInTheArray = arr => {
   let len = arr.length - 1;
   let result;
   result = arr[len];
-  let res = arr.map(value => {
-    if (result == value) {
-      value++;
 
-      if (value % 2 === 0) {
-        let c = value
-          .toString()
-          .split("")
-          .map(Number);
-        return c;
+  const arrLen = arr.length;
+  return arr.map((item, idx) => {
+    let lastItem = [];
+
+    if (arrLen === idx + 1) {
+      lastItem = ++item;
+
+      if (lastItem >= 10) {
+        lastItem = lastItemArray = [...String(lastItem)];
       }
+
+      return lastItem;
     }
-    return value;
+
+    return [item, ...lastItem];
   });
-  return res
-    .toString()
-    .split(",")
-    .map(v => parseInt(v));
+  // return res
+  //   .toString()
+  //   .split(",")
+  //   .map(v => parseInt(v));
 };
-// console.log(addOneToTheLastVAlueInTheArray([5, 2]));
+console.log(addOneToTheLastVAlueInTheArray([5, 2, 6, 7, 9]), "this value");
 
 const stringReversal = str => {
   let result = [];
@@ -274,7 +300,12 @@ const reverseInt = int => {
 
   return parseInt(reverse) * Math.sign(int);
 };
-// console.log(reverseInt(-32));
+console.log(reverseInt(-1534236469));
+// return interger and return 0 if the ingeger overflows
+var reverse = x => {
+  const s = parseInt([...("" + x)].reverse().join(""));
+  return s >= 2 ** 31 ? 0 : Math.sign(x) * s;
+};
 const arrayChucks = (array, num) => {
   let arr = [];
   for (let i = 0; i < array.length; i++) {
@@ -288,4 +319,31 @@ const arrayChucks = (array, num) => {
   arr.push(array);
   return arr;
 };
-console.log(arrayChucks([1, 2, 3, 4, 6, 6, 7], 2));
+// console.log(arrayChucks([1, 2, 3, 4, 6, 6, 7], 2));
+
+const returnSumOfInput = num => {
+  let count = 0;
+  for (let i = 1; i <= num; i++) {
+    count += i;
+  }
+  console.log(count);
+};
+returnSumOfInput(4);
+//return a function that returns string
+function str(str) {
+  const returnFunctionThatReturnsStr = () => str;
+  console.log(returnFunctionThatReturnsStr());
+}
+str("apple");
+
+var re = "000230.000";
+var r = "000";
+
+console.log(Math.round(parseInt(r).toFixed()));
+console.log(Math.round(parseInt(re).toFixed()));
+console.table(Math.ceil(parseInt(re).toExponential(2)));
+let count = 4;
+let x = -3;
+
+const mergeSortedArr = (nums1, m, nums2, n) => {};
+mergeSortedArr([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3);

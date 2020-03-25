@@ -368,15 +368,10 @@ function highestNumPosition(array) {
     // console.log(i)
     arrayResult.push(Math.max(...array[i]));
   }
-  //   console.log(arrayResult)
   let rMax = Math.max(...arrayResult);
   let findMaxIndex = arrayResult.indexOf(rMax);
   let findRowIndex = array[findMaxIndex].indexOf(rMax);
   let joinRowPosition = [findMaxIndex, findRowIndex];
-
-  // console.log(rMax)
-  // console.log(findMaxIndex)
-  //console.log(findRowIndex)
   console.log(joinRowPosition);
 }
 highestNumPosition([
@@ -542,7 +537,6 @@ function randomString(array) {
 randomString("chibuike");
 
 function letterSpring(string, letter) {
-  var str = "";
   var count = 0;
   for (i = 0; i < string.length; i++) {
     if (letter.indexOf(string[i]) !== -1) {
@@ -602,15 +596,16 @@ function pairs(n, ar) {
   return arrPairs.length;
   // return arr.length;
 }
-
 let a = pairs(14, [8, 2, 3, 5, 4, 5, 4, 3, 1, 1, 1, 1, 1, 1, 4]);
+console.log(a);
+
 function hash(...arr) {
   let withHash, NotWithHash;
   for (i = 0; i < arr.length; i++) {
     arr[i] = "#";
-    withHash = arr.filter(n => n == "#");
+    withHash = arr.filter(n => n === "#");
     NotWithHash = arr.filter(n => n !== "#").fill("-");
-    console.log(withHash.concat(NotWithHash).join(" "));
+    // console.log(withHash.concat(NotWithHash).join(" "));
   }
 }
 hash(1, 2, 3, 4, 5, 6);
@@ -620,7 +615,7 @@ function romanFigure(matches, ...array) {
   let strArr = str.split(",");
   for (let i in strArr) {
     if (matches == array[i]) {
-      console.log(strArr[i]);
+      // console.log(strArr[i]);
     }
   }
 }
@@ -755,7 +750,7 @@ function matrixNum(a) {
     x2 += a.reverse()[i][i];
   });
   let res = Math.abs(x1 - x2);
-  console.log(res);
+  // console.log(res);
 }
 matrixNum([
   [2, 3, 1],
@@ -815,15 +810,8 @@ diagonalDifference([
 //   1
 // 8 6 6
 
-function hourglass(arr) {
-  for (let a in arr) {
-    console.log(a);
-  }
+function fillArr() {
+  let res = Array.from({ length: 5 }, x => (x = "chi"));
+  console.log(res);
 }
-hourglass([
-  [-9, -9, -9, 1, 1, 1],
-  [0, -9, 0, 4, 3, 2],
-  [-9, -9, -9, 1, 2, 3],
-  [0, 0, 8, 6, 6, 0],
-  [0, 0, 0, -2, 0, 0]
-]);
+fillArr();
