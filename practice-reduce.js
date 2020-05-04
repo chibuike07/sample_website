@@ -11,7 +11,7 @@ const addingObjectValues = arr => {
     return acum + currentValue.item;
   }, 0);
 };
-// console.log(addingObjectValues([{ item: 1 }, { item: 2 }, { item: 3 }]));
+console.log(addingObjectValues([{ item: 1 }, { item: 2 }, { item: 3 }]));
 const flatterArr = arr => {
   let result = arr.reduce((acum, currentValue, index, array) => {
     return acum.concat(currentValue);
@@ -33,7 +33,7 @@ const removeDup = arr => {
     return acum;
   }, []);
 };
-// console.log(removeDup(["1", "2", "3", "2", "1", "5", "6", "2"]));
+console.log(removeDup(["1", "2", "3", "2", "1", "5", "6", "2"]));
 
 const sumTarget = (arr, target) => {
   let arrs = [];
@@ -60,3 +60,12 @@ const sumTarget = (arr, target) => {
   return arrs;
 };
 // console.log(sumTarget([1, 2, 3, 4, 5, 6, 7], 7));
+
+const makeKeyAndValueWithReduce = array => {
+  let res = array.reduce((wrapper, currentValue, currentIndex) => {
+    currentValue - wrapper;
+    return wrapper;
+  });
+  return res;
+};
+console.log(makeKeyAndValueWithReduce(["1", "2", "3", "4", "5", "6", "7"]));
