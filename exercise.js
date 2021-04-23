@@ -1,28 +1,28 @@
 var i = "am happy";
-console.log(i);
+// console.log(i);
 // Write a JavaScript function to check whether an `input` is an array or not
 function isarr(inpu) {
   //var input = document.createElement('input')
   if (inpu instanceof Array) {
-    console.log("true");
+    // console.log("true");
   } else {
-    console.log("false");
+    // console.log("false");
   }
   return inpu;
 }
-console.log(isarr([5]));
+// console.log(isarr([5]));
 //Write a JavaScript function to clone an array.
 var array = [1, 3, 4, 5];
-console.log(Array.from(array));
+// console.log(Array.from(array));
 //Write a JavaScript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array
 function finde(index) {
   for (let i = 0; i < index.length; i++) {
     return array[0];
   }
-  // return index;
+  return index;
 }
-console.log(finde([[1, 3, 4, 5]]));
-console.log(finde([[4, 6, 4, 5]]));
+// console.log(finde([[1, 3, 4, 5]]));
+// console.log(finde([[4, 6, 4, 5]]));
 
 //Write a simple JavaScript program to join all elements of the following array into a string
 function joins(array) {
@@ -30,8 +30,8 @@ function joins(array) {
   //let r = ar.toString()
   return ar;
 }
-console.log(joins(["u", "re", "all", "i", "want"]));
-console.log(joins(["u", "re", "u", "dy", "ok"]));
+// console.log(joins(["u", "re", "all", "i", "want"]));
+// console.log(joins(["u", "re", "u", "dy", "ok"]));
 
 function divisible(a) {
   return a % 2 == 0;
@@ -52,7 +52,8 @@ for(let x=1; x<str.length; x++)
       result.push(str[x]);
      }
   }
-console.log(result.join(''));*/
+// console.log(result.join(''));*/
+
 //sorting array
 function sot(arr) {
   let r = arr.sort((a, b) => {
@@ -60,21 +61,21 @@ function sot(arr) {
   });
   return r;
 }
-console.log(sot([3, 8, 7, 6, 5, -4, 3, 2, 1]));
+// console.log(sot([3, 8, 7, 6, 5, -4, 3, 2, 1, "a", "b"]));
 
 //Write a JavaScript program to find the most frequent item of an array
 ar = [3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3];
-let g = ar.reduce(function(a, b) {
+let g = ar.reduce(function (a, b) {
   a[b] = a[b] + 1 || 1;
 
   return a;
 }, {});
-console.log(g);
+// console.log(g);
 
 let max = Math.max(...Object.values(g));
-let keyFre = Object.keys(g).filter(k => g[k] === max);
-console.log(max);
-console.log(keyFre + ": " + max);
+let keyFre = Object.keys(g).filter((k) => g[k] === max);
+// console.log(max);
+// console.log(keyFre + ": " + max);
 
 //Write a JavaScript program which accept a string as input and swap the case of each character.
 //var words = prompt();
@@ -91,42 +92,49 @@ console.log(keyFre + ": " + max);
        }
        else result.push(str[i])
     }
-console.log(result.join(''))
+// console.log(result.join(''))
 */
 
 let myArr = [];
 function theArray(arr) {
-  myArr = arr.filter(function(a) {
+  myArr = arr.filter(function (a) {
     return a % 2 == 0 && a % 3 == 0;
   });
   return myArr;
 }
-console.log(theArray([5, 7, 18, 36, 17]));
-//Write a JavaScript program which prints the elements of the following array.
-var arr = [
+// console.log(theArray([5, 7, 18, 36, 17]));
+
+//Write a JavaScript program which prints the elements of the following array
+const mapse = (arr) => {
+  for (let a in arr) {
+    // console.log("row " + a);
+    for (j in arr[a]) {
+      // console.log(arr[a][j]);
+      if (arr[a][j] instanceof Array) {
+        mapse(arr[a][j]);
+      }
+      // console.log(arr[a][j]);
+    }
+  }
+};
+mapse([
   [1, 2, 1, 24],
   [8, 11, 9, 4],
   [7, 0, 7, 27],
-  [7, 4, 28, 14],
-  [3, 10, 26, 7]
-];
-for (let a in arr) {
-  console.log("row " + a);
-  for (j in arr[a]) {
-    console.log(arr[a][j]);
-  }
-}
+  [7, 4, ["yiu", "my", [40, 20]], 28, 14],
+  [3, 10, 26, ["a", "b"], 7],
+]);
 //Write a JavaScript program to compute the sum and product of an array of integers.
 var arrs = [6, 5, 7, 18, 9, 26, 7, 12];
 for (i in arrs) {
   let s = arrs[i] % 2 == 0 && arrs[i] % 3 == 0;
 }
-console.log(arrs);
+// console.log(arrs);
 function theArray(arr) {
   for (i = 1; i < arr.length; i++) {
     let s = arr[i] % 2 == 0 && arr[i] % 3 == 0;
 
-    console.log(s);
+    // console.log(s);
   }
   return arr;
 }
@@ -136,21 +144,21 @@ function sumProd(arr) {
   var p = 1;
   var s = 0;
   for (let i = 0; i < arr.length; i++) {
-    p = p * arr[i];
-    s = s + arr[i];
+    p *= arr[i];
+    s += arr[i];
   }
-  console.log("sum of the ar is :" + s + " product of the array is: " + p);
+  // console.log("sum of the ar is :" + s + " product of the array is: " + p);
 }
 sumProd([1, 2, 3, 4, 5, 6]);
 //Write a JavaScript program to remove duplicate items from an array
 function removeDup(array) {
-  let dup = array.reduce(function(a, b) {
-    if (a.indexOf(b) == -1) {
+  let dup = array.reduce(function (a, b) {
+    if (a.indexOf(b) === -1) {
       a.push(b);
     }
     return a;
   }, []);
-  console.log(dup);
+  // console.log(dup);
 }
 removeDup([1, 2, 3, 2, 1, 4, 5]);
 
@@ -164,10 +172,11 @@ color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
 
 function colorPos() {
   for (c = 1; c < color.length; c++) {
-    console.log(c + " choice is " + color[c]);
+    // console.log(c + " choice is " + color[c]);
   }
 }
 colorPos();
+
 function findLeapYear(st_yr, end_yr) {
   var year_range = [];
 
@@ -175,11 +184,12 @@ function findLeapYear(st_yr, end_yr) {
     year_range.push(i);
   }
   var new_array = [];
-  year_range.forEach(function(year) {
+  year_range.forEach(function (year) {
     if (test_leap(year)) new_array.push(year);
   });
   return new_array;
 }
+
 function test_leap(year) {
   if (
     (year % 4 === 0 && year % 100 !== 0) ||
@@ -191,7 +201,7 @@ function test_leap(year) {
   }
 }
 
-console.log(findLeapYear(2000, 2012));
+// console.log(findLeapYear(2000, 2012));
 //Write a JavaScript program to shuffle an array.
 function shuffleArr(array) {
   var ctr = array.length;
@@ -207,7 +217,7 @@ function shuffleArr(array) {
   }
   return array;
 }
-console.log(shuffleArr([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
+// console.log(shuffleArr([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 var arrCheck = [1, 2, 3, 4, 5, 7, 8, 9];
 
@@ -216,52 +226,55 @@ function searchV() {
   var inp = document.querySelector("input").value;
   for (i = 0; i < arrCheck.length; i++) {
     if (inp.indexOf(arrCheck[i])) {
-      console.log(arrCheck[i] + " " + i);
+      // console.log(arrCheck[i] + " " + i);
     }
   }
-  //console.log(searchAnwser)
+  // console.log(searchAnwser);
 }
+
 function flatter(array) {
   let u = array
     .toString()
-    .split()
-    .map(element => element);
-  console.log(u);
+    .split(",")
+    .map((element) => element);
+  // console.log(u);
   let w = String(array)
     .split(",")
-    .map(element => element);
-  console.log(w);
+    .map((element) => element);
+  // console.log(w);
 }
 
 flatter([1, [2], [3, [[4]]], [5, 6]]);
 
 function computeUnionOfTwoArray(array, array2) {
   let d = array.concat(array2); //merge the two array
-  let dup = d.reduce(function(a, b) {
+  let dup = d.reduce(function (a, b) {
     //remove duplicate values
-    if (a.indexOf(b) == -1) a.push(b);
+    if (a.indexOf(b) === -1) a.push(b);
     return a;
   }, []);
-  console.log(dup);
 
-  let c = dup.sort(function(a, b) {
+  // console.log(dup);
+
+  let c = dup.sort(function (a, b) {
     //sort fro low to high
     return a - b;
   });
-  console.log(c);
+
+  // console.log(c);
 
   var r = 0;
   for (v in c) {
     // making the compute
     r += c[v];
   }
-  console.log(r);
+  // console.log(r);
 }
 computeUnionOfTwoArray([1, 2, 3], [100, 2, 1, 10]); //array and array2
-computeUnionOfTwoArray([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]); //array and array2
+computeUnionOfTwoArray([1, 2, 3, 4, 5], [1, [2], [3, [[4, 1]]], [5, 6]]); //array and array2
 
 function removeNonValueAndZero(array) {
-  const a = array.filter(function(r) {
+  const a = array.filter(function (r) {
     return (
       r !== 0 &&
       r !== NaN &&
@@ -272,80 +285,92 @@ function removeNonValueAndZero(array) {
     );
   });
 
-  console.log(a);
+  // console.log(a);
 
   let f = array.filter(Boolean);
-  console.log(f);
+  // console.log(f);
 }
 removeNonValueAndZero([NaN, 0, 15, false, -22, "", undefined, 45, null]);
 
 var library = [
   {
     author: "bill gate",
-    title: "information technonlog"
+    title: "information technonlog",
   },
   {
     author: "william",
-    title: "woman in her pride"
+    title: "woman in her pride",
   },
   {
     author: "frankin",
-    title: "boxer"
-  }
+    title: "boxer",
+  },
 ];
 function SortByTitleValue(x, y) {
   if (x.title < y.title) return -1;
   if (x.title < y.title) return 1;
   return 0;
 }
-console.log(library.sort(SortByTitleValue));
+
+// console.log(library.sort(SortByTitleValue));
+let res = library.sort((a, b) => {
+  // console.log("a.title.length", a.title.length);
+  // console.log("b.title.length", b.title.length);
+  return a.title.length - b.title.length;
+});
+// console.log("res", res);
 
 function myfun() {
-  let r = library.sort(function(a, b) {
+  let r = library.sort(function (a, b) {
     return a - b;
   });
-  console.log(r);
+  // console.log(r);
 }
 myfun();
-function removeSpecificElement(array) {
-  let a = array.indexOf(4);
-  b = array.slice(1, 4);
-
-  console.log(b);
+function removeSpecificElement(array, num) {
+  if (array.indexOf(num)) {
+    let b = array.filter((a, i) => a !== num);
+    // console.log(b);
+  }
 }
 removeSpecificElement([2, 5, 9, 6], 5);
 
 function findSpecificElement(array, index) {
-  let r = array.some(function(a) {
-    return a == index;
+  let r = array.find(function (a) {
+    return a === index;
   });
-  console.log(r);
+  // console.log(r);
 }
-findSpecificElement([2, 5, 9, 6], 5);
+
+findSpecificElement([2, 5, 9, 6], 2);
 
 function getRandomElementFromArray(array) {
   let b = Math.floor(Math.random() * array.length);
   let c = array[b];
-  console.log(c);
+  // console.log(c);
 }
+
 getRandomElementFromArray([1, 2, 3, 4, 5]);
 
 function fillElementIntoArray(num, filledValue) {
   let a = [1, 2, 3, 4, 5, 6];
   let b = a.fill(filledValue, num);
-  console.log(b);
+  // console.log(b);
+  let len = num.length;
+  let res = Array.from({ length: 2 }, (x) => (x = "chi" || 9));
+  // console.log(res);
 }
 fillElementIntoArray(2, "pass");
 
 function fillArray(n, val) {
   let r = Array.apply(null, Array(n)).map(Number.prototype.valueOf, val);
-  console.log(r);
+  // console.log(r);
 }
 fillArray(6, 5);
 
 function fillTextValue(n, val) {
   let r = Array.apply(null, Array(n)).map(String.prototype.valueOf, val);
-  console.log(r);
+  // console.log(r);
 }
 fillTextValue(4, "chi");
 
@@ -354,35 +379,51 @@ function fillWithGeneratedInteger(start, end) {
   for (i = 0; i < end; i++, start++) {
     arr[i] = start;
   }
-  console.log(arr);
+  // console.log(arr);
 }
 fillWithGeneratedInteger(3, 7);
 fillWithGeneratedInteger(-6, 4);
 fillWithGeneratedInteger(-4, 7);
+
+const generate = (start, end) => {
+  let arr = [];
+  for (let i = 0; i < end; i++, start++) {
+    arr[i] = start;
+  }
+  // console.log("arr", arr);
+};
+generate(3, 7);
+// generate(-6, 4);
 
 function highestNumPosition(array) {
   // write you code here...
   var arrayResult = [];
   var i;
   for (i = 0; i < array.length; i++) {
-    // console.log(i)
+    // console.log(i);
     arrayResult.push(Math.max(...array[i]));
   }
+
   let rMax = Math.max(...arrayResult);
   let findMaxIndex = arrayResult.indexOf(rMax);
   let findRowIndex = array[findMaxIndex].indexOf(rMax);
+
   let joinRowPosition = [findMaxIndex, findRowIndex];
-  console.log(joinRowPosition);
+
+  // console.log('arrayResult', joinRowPosition)
+  // console.log(joinRowPosition);
 }
+
 highestNumPosition([
   [66, 3, 9],
   [1, 8, 98],
-  [7, 9, 7]
+  [7, 9, 7],
 ]);
+
 highestNumPosition([
   [3, 5, 2],
   [55, 6, 22],
-  [54, 64, 110]
+  [54, 64, 110],
 ]);
 
 var maxNum = [];
@@ -391,35 +432,38 @@ function maxElement(array) {
   if (array.length === 0) {
     return [0, 0];
   }
+
   for (i = 0; i < array.length; i++) {
     maxNum.push(Math.max(...array[i]));
   }
+
   let newMax = Math.max(...maxNum);
   let positionOne = maxNum.indexOf(newMax);
   let positionTwo = array[positionOne].indexOf(newMax);
   finalNum.push(positionOne, positionTwo);
-  console.log(finalNum);
+  // console.log(finalNum);
 }
+
 maxElement([
   [66, 3, 9],
   [1, 8, 98],
-  [7, 9, 7]
+  [7, 9, 7],
 ]);
 
 //letterSwitch
 var str = "chibuike";
 var shuffle = str
   .split("")
-  .sort(function() {
+  .sort(function () {
     return 0.5 - Math.random();
   })
   .join("");
-//console.log(shuffle)
+// console.log(shuffle);
 
 function shuffleString(inputChar, actualChar, changechar) {
   let shuffle = changechar
     .split("")
-    .sort(function() {
+    .sort(function () {
       return 0.5 - Math.random();
     })
     .join("");
@@ -429,9 +473,9 @@ function shuffleString(inputChar, actualChar, changechar) {
       shuffle.length === actualChar.length &&
       actualChar.indexOf(inputChar) == -1
     ) {
-      console.log(shuffle.slice(0, inputChar.length));
+      // console.log(shuffle.slice(0, inputChar.length));
     } else {
-      console.log((shuffle = -1));
+      // console.log((shuffle = -1));
     }
   }
 }
@@ -442,20 +486,33 @@ shuffleString("america", "atvmeprciqz", "mgrenskilop");
 function longestString(string) {
   var wrap = "";
   var str = string.split(/\s+/g);
-  let result = str.map(n => n.length);
+  let result = str.map((n) => n.length);
   let maxLen = Math.max(...result);
-  let maxValue = str.filter(n => n.length === maxLen);
-  for (i = 0; i < maxValue.length; i++) {
-    wrap += maxValue[i];
-  }
-  return wrap;
+  let maxValue = str.filter((n) => n.length === maxLen).join("");
+  return maxValue;
 }
 
-console.log(longestString("i will be there"));
-console.log(longestString("web development tutorial"));
+// console.log(longestString("i will be there"));
+// console.log(longestString("web development tutorial"));
+
+const longString = (string) => {
+  let split = string.split(" ");
+
+  let res = split.reduce((a, b) => {
+    a[b] = b.length;
+    return a;
+  }, {});
+  let max = Math.max.apply(null, Object.values(res));
+  let foundValue = Object.keys(res)
+    .filter((v) => res[v] === max)
+    .join("");
+  // console.log("foundValue", foundValue);
+};
+longString("i will be there");
 
 function countVowelSound(string) {
   var str = string.split("");
+
   var vSound = "aoiueAOIUE";
   var count = 0;
 
@@ -466,30 +523,30 @@ function countVowelSound(string) {
   }
   return count;
 }
-console.log(countVowelSound("the quick brown fox"));
-console.log(countVowelSound("chibuike"));
+// console.log(countVowelSound("the quick brown fox"));
+// console.log(countVowelSound("chibuike"));
 
 function primeNum(array) {
-  let result = array.filter(n => n % 2 === 1);
+  let result = array.filter((n) => n % 2 === 1);
   return result;
 }
-console.log(primeNum([1, 3, 4, 5, 6, 8, 37, 9, 10]));
-console.log(primeNum([5, 20, 7, 23, 25, 12, 30]));
+// console.log(primeNum([1, 3, 4, 5, 6, 8, 37, 9, 10]));
+// console.log(primeNum([5, 20, 7, 23, 25, 12, 30]));
 
 function expBase(base, exponential) {
   return Math.floor(Math.pow(base, exponential));
 }
-console.log(expBase(2, 3));
-console.log(expBase(3, 5));
+// console.log(expBase(2, 3));
+// console.log(expBase(3, 5));
 
 function removeDuplication(string) {
   var emptyString = "";
   for (i = 0; i < string.length; i++) {
-    if (emptyString.indexOf(string.charAt(i)) == -1) {
+    if (emptyString.indexOf(string[i]) === -1) {
       emptyString += string[i];
     }
   }
-  console.log(emptyString);
+  // console.log(emptyString);
 }
 removeDuplication("chimeechibbuike");
 removeDuplication("helo i love you o");
@@ -509,30 +566,51 @@ function getNonRepeated(string) {
       break;
     }
   }
-  console.log(result);
+  // console.log(result);
 }
 
 getNonRepeated("abacbddec");
 getNonRepeated("chibuike");
 
-function randomNum(array) {
-  let shuffle = array
-    .sort(function() {
-      return 0.5 - Math.random();
-    })
-    .join("");
-  console.log(shuffle);
-}
-randomNum([1, 2, 3, 4, 5]);
+const notRepr = (string) => {
+  let res = string.split("").reduce((a, b) => {
+    a[b] = a[b] + 1 || 1;
+    return a;
+  }, {});
+  let min = Math.min(...Object.values(res));
+  let wordLetter = Object.keys(res).find((v) => res[v] === min);
+  // .find((r) => res[r] === min);
+  return wordLetter;
+};
+// console.log(notRepr("chibuike"));
+// console.log(notRepr("abacbddec"));
+
+const randomNum = (array) => {
+  let res = array.map((v) => {
+    let shuffle = Object.values(v)
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .join("");
+
+    return shuffle;
+  });
+
+  // console.log(res.join(" "));
+};
+randomNum([
+  { 1: 2, 2: 3, 3: 4, 4: 0, 5: 8 },
+  { a: 1, y: 4 },
+]);
 
 function randomString(array) {
   let shuffle = array
     .split("")
-    .sort(function() {
+    .sort(function () {
       return 0.5 - Math.random();
     })
     .join("");
-  console.log(shuffle);
+  // console.log(shuffle);
 }
 randomString("chibuike");
 
@@ -540,19 +618,19 @@ function letterSpring(string, letter) {
   var count = 0;
   for (i = 0; i < string.length; i++) {
     if (letter.indexOf(string[i]) !== -1) {
-      //str += string[i]
+      str += string[i];
       count++;
     }
   }
-  console.log(count);
+  // console.log(count);
 }
 letterSpring("chibuike", "i");
 
 function sortAlgorithm(array) {
-  let result = array.sort(function(a, b) {
+  let result = array.sort(function (a, b) {
     return b - a;
   });
-  console.log(result);
+  // console.log(result);
 }
 sortAlgorithm([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 
@@ -565,19 +643,20 @@ function arri(array) {
   }
   // console.log("the length of duplicate number is even");
 }
-arri([1, 2, 3, 2, 1, 4, 4]);
+arri([1, 2, 3, 2, 2, 1, 5, 4, 4]);
 let counta = {};
 function sorta(...array) {
   let sortedArr = array.sort((a, b) => a - b);
-  sortedArr.forEach(value => {
-    counta[value] = (counta[value] || 0) + 1;
+  sortedArr.forEach((value) => {
+    counta[value] = counta[value] + 1 || 1;
   });
-  // console.log(counta);
+
   let arrOfObj = Array.of(counta);
-  console.log(arrOfObj);
   let result = arrOfObj
-    .map(object => Object.keys(object).find(value => object[value] % 2 !== 0))
-    .join("");
+    .map((object) =>
+      Object.keys(object).filter((value) => object[value] % 2 !== 0)
+    )
+    .join(" ");
   return result;
 }
 
@@ -593,22 +672,42 @@ function pairs(n, ar) {
       n--;
     }
   }
+  // console.log(arrPairs.length);
   return arrPairs.length;
   // return arr.length;
 }
 let a = pairs(14, [8, 2, 3, 5, 4, 5, 4, 3, 1, 1, 1, 1, 1, 1, 4]);
-console.log(a);
+
+//find and count pairs in an array
+const paiers = (limit, arr) => {
+  let sortarray = arr.sort((a, b) => a - b);
+  let wrapper = [];
+  let count = 0;
+
+  for (let i = 0; i <= limit; i++) {
+    if (sortarray[i] === sortarray[i + 1]) {
+      wrapper.push(sortarray[i]);
+    }
+  }
+
+  let result = wrapper.filter((a, b, c) => c.indexOf(a) === b);
+  // console.log("result", result);
+};
+
+paiers(14, [8, 2, 3, 5, 4, 5, 4, 3, 1, 1, 1, 1, 1, 1, 4]);
 
 function hash(...arr) {
   let withHash, NotWithHash;
   for (i = 0; i < arr.length; i++) {
     arr[i] = "#";
-    withHash = arr.filter(n => n === "#");
-    NotWithHash = arr.filter(n => n !== "#").fill("-");
+    withHash = arr.filter((n) => n === "#");
+    NotWithHash = arr.filter((n) => n !== "#").fill("-");
+    // console.log(NotWithHash);
     // console.log(withHash.concat(NotWithHash).join(" "));
   }
 }
-hash(1, 2, 3, 4, 5, 6);
+// hash(1, 2, 3, 4, 5, 6);
+hash(1, 3, 1, 2, 4, 2);
 
 function romanFigure(matches, ...array) {
   let str = "i,ii,iii,iv,v,vi,vii,viii,ix,x";
@@ -621,109 +720,42 @@ function romanFigure(matches, ...array) {
 }
 romanFigure(3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-// function arr(...array) {
-//   let res = array.filter((a, b, c) => c.indexOf(a) !== b).sort();
-//   // console.log(res.length);
-//   if (res.length % 2 == 0) {
-//     // console.log("the length of dupliate element is an odd number");
-//     return false;
-//   }
-//   // console.log("the length of duplicate number is even");
-// }
-// arr(1, 2, 3, 2, 1, 4, 4);
-// let counta = {};
-// function sorta(...array) {
-//   let sortedArr = array.sort((a, b) => a - b);
-//   sortedArr.forEach(value => {
-//     counta[value] = (counta[value] || 0) + 1;
-//   });
-//   // console.log(counta);
-//   let arrOfObj = Array.of(counta);
-//   console.log(arrOfObj);
-//   let result = arrOfObj
-//     .map(object => Object.keys(object).find(value => object[value] % 2 !== 0))
-//     .join("");
-//   return result;
-// }
-
-// // console.log(sorta(7, 7, 7, 1, 1, 7, 1, 3, 3, 7, 7, 3, 3, 3));
-
-// function pairs(n, ar) {
-//   let arr = ar.sort();
-//   let arrPairs = [];
-//   for (let i = 0; i < n; i++) {
-//     if (arr[i] === arr[i + 1]) {
-//       arrPairs.push(arr[i]);
-//       arr.splice(i, 1);
-//       n--;
-//     }
-//   }
-//   return arrPairs.length;
-//   // return arr.length;
-// }
-
-// let a = pairs(14, [8, 2, 3, 5, 4, 5, 4, 3, 1, 1, 1, 1, 1, 1, 4]);
-
-// function hash(...arr) {
-//   let withHash, NotWithHash;
-//   for (i = 0; i < arr.length; i++) {
-//     arr[i] = "#";
-//     withHash = arr.filter(n => n == "#");
-//     NotWithHash = arr.filter(n => n !== "#").fill("-");
-//     // console.log(withHash.concat(NotWithHash).join(" "));
-//   }
-// }
-// hash(1, 2, 3, 4, 5, 6);
-
-// function num(name) {
-//   let arr = [];
-//   for (let i = 1; i <= name; i++) {
-//     arr.push(i);
-//   }
-//   // console.log(arr);
-//   for (i = 0; i < arr.length; i++) {
-//     arr[i] = "#";
-//     withHash = arr.filter(n => n == "#");
-//     NotWithHash = arr.filter(n => n !== "#");
-//     console.log(withHash.join(""));
-//   }
-// }
-// num(5);
 // // chyke 08138242433
-// function romanFigure(matches, ...array) {
-//   let str = "i,ii,iii,iv,v,vi,vii,viii,ix,x";
-//   let strArr = str.split(",");
-//   for (let i in strArr) {
-//     if (matches == array[i]) {
-//       // console.log(strArr[i]);
-//     }
+// function sumTo(num) {
+//   let sum = 1;
+//   for (let i = 1; i <= num; num--) {
+//     sum *= num;
 //   }
+//   console.log(sum);
 // }
-// romanFigure(3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+// sumTo(1);
 
-// let sum = 0;
-// // function sumTo(num) {
-// //   for (let i = 1; i <= num; num--) {
-// sum += num;
-// }
-// console.log(sum);
-// }
-// sumTo(4);
-// function factorial(n) {
-// return n != 1 ? n * factorial(n - 1) : 1;
-// }
-// console.log(factorial(5));
+function factorial(n) {
+  return n != 1 ? n * factorial(n - 1) : 1;
+}
+// console.log(factorial(7));
 
-// function fib(n) {
-// return n <= 1 ? n : fib(n - 1) + fib(n - 2);
-// }
+const factorials = (n) => {
+  let count = 1;
 
-// alert(fib(3)); // 2
-// alert(fib(7)); // 13
+  for (let i = count; n >= 1; n--) {
+    count = count *= n;
+  }
+  // console.log("count", count);
+};
+factorials(4);
+
+let num = 5;
+
+function fib(n) {
+  return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+}
+// console.log(fib(3)); // 2
+// fib(7); // 13
 // fib(77); // will be extremely slow!
 
 function primeNum(...arr) {
-  let res = arr.filter(n => {
+  let res = arr.filter((n) => {
     for (let i = 2; i <= Math.floor(Math.sqrt(n)); i++) {
       if (n % i === 0) return false;
     }
@@ -744,18 +776,20 @@ function matrix(m, n) {
 function matrixNum(a) {
   let x1 = 0;
   let x2 = 0;
-  let aLen = a.length;
+
   a.map((n, i) => {
     x1 += a[i][i];
     x2 += a.reverse()[i][i];
   });
+
+  console.log("x1", x2);
   let res = Math.abs(x1 - x2);
   // console.log(res);
 }
 matrixNum([
   [2, 3, 1],
   [3, 4, 7],
-  [7, 2, 8]
+  [7, 2, 8],
 ]);
 
 /* 
@@ -773,9 +807,10 @@ function diagonalDifference(matrix) {
   for (let i = 0; i < length; i++) {
     // Calculating the primary diagonal.
     diagonal1 += matrix[i][i];
+
     // Reversing the second dimension of array to calculate secondary diagonal.
     diagonal2 += matrix.reverse()[i][i];
-    // console.log(matrix.reverse()[i])
+    // console.log(matrix.reverse()[i]);
   }
   // return absolute difference value.
   // console.log(Math.abs(diagonal1 - diagonal2));
@@ -783,7 +818,7 @@ function diagonalDifference(matrix) {
 diagonalDifference([
   [2, 3, 1],
   [3, 4, 7],
-  [7, 2, 8]
+  [7, 2, 8],
 ]);
 
 // -9 -9 -9  1 1 1
@@ -811,7 +846,7 @@ diagonalDifference([
 // 8 6 6
 
 function fillArr() {
-  let res = Array.from({ length: 5 }, x => (x = "chi"));
-  console.log(res);
+  let res = Array.from({ length: 5 }, (x) => (x = "chi"));
+  // console.log(res);
 }
 fillArr();

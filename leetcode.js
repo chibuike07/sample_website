@@ -1,8 +1,8 @@
-const badVerion = n => {
+const badVerion = (n) => {
   // didn't pass the test case
   let num = [1, 2, , 4, 5];
   let arr = [];
-  let res = num.filter(r => {
+  let res = num.filter((r) => {
     return String(n).includes(r);
   });
   return res[0];
@@ -10,7 +10,7 @@ const badVerion = n => {
 
 // console.log(badVerion(2));
 
-var numJewelsInStones = function(J, S) {
+var numJewelsInStones = function (J, S) {
   let arr = [];
   let split = J.split("");
   let split2 = S.split("");
@@ -30,7 +30,7 @@ var numJewelsInStones = function(J, S) {
 
 const hammingDistance = (x, y) => {
   var resultStr = x ^ y;
-  console.log(resultStr);
+  // console.log(resultStr);
   let count = 0;
   while (resultStr > 0) {
     let res = (resultStr = resultStr & (resultStr - 1));
@@ -39,9 +39,9 @@ const hammingDistance = (x, y) => {
   return count;
 };
 
-// console.log(hammingDistance(2, 2));
+// console.log(hammingDistance(3, 2));
 
-var canConstruct = function(ransomNote, magazine) {
+var canConstruct = function (ransomNote, magazine) {
   // passed some test case
   let arr = [];
   let i;
@@ -93,12 +93,14 @@ var canConstruct = function(ransomNote, magazine) {
 // console.log(canConstruct("", ""));
 // console.log(canConstruct("", "a"));
 
-var findComplement = function(num) {
+var findComplement = function (num) {
   var result = Math.pow(2, num.toString(2).length) - 1;
   return ~num & result;
 };
-// console.log(findComplement(3));
-var rotate = function(nums, k) {
+
+// console.log(findComplement(5));
+
+var rotate = function (nums, k) {
   let resa = nums.reverse();
   for (let i = 0; i <= resa.length; i++) {
     if (k) {
@@ -114,21 +116,21 @@ var rotate = function(nums, k) {
 // console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
 // console.log(rotate([-1, -100, 3, 99], 2));
 
-var firstUniqChar = function(s) {
+var firstUniqChar = function (s) {
   let splitS = s.split("");
   let objectS = splitS.reduce((ac, cv) => {
     ac[cv] = (ac[cv] + 1) | 1;
     return ac;
   }, {});
-  // console.log(objectS);
-  let keys = Object.keys(objectS).filter(keys => objectS[keys] === 1);
-  // console.log(keys);
+  console.log(objectS);
+  let keys = Object.keys(objectS).filter((keys) => objectS[keys] === 1);
   let foundValues = splitS.findIndex(
-    firstIndexOfvalueEqualToOne => keys[0] === firstIndexOfvalueEqualToOne
+    (firstIndexOfvalueEqualToOne) => firstIndexOfvalueEqualToOne === keys[0]
   );
+  // console.log(foundValues);
   return foundValues;
 };
-// console.log(firstUniqChar("leetcode"));
+// console.log(firstUniqChar("lleetcode"));
 // console.log(firstUniqChar("loveleetcode"));
 
 const isCousin = (root, x, y) => {
@@ -149,9 +151,10 @@ const isCousin = (root, x, y) => {
 // console.log(isCousin([1, 2, 3, 4], 4, 3));
 // console.log(isCousin([1, 2, 3, null, 4], 2, 3));
 
-const transpose = arr => {
-  let res = Object.keys(arr[0]).map(c => {
-    let secod = arr.map(r => {
+const transpose = (arr) => {
+  // console.log("Object.keys", Object.keys[arr[0]]);
+  let res = Object.keys(arr[0]).map((c) => {
+    let secod = arr.map((r) => {
       return r[c];
     });
     return secod;
@@ -163,11 +166,11 @@ const transpose = arr => {
 //   transpose([
 //     [1, 2, 3, 4, 5],
 //     [5, 4, 3, 2, 1],
-//     [3, 2, 5, 3, 1]
+//     [3, 2, 5, 3, 1],
 //   ])
 // );
 
-const secondTranspose = arr => {
+const secondTranspose = (arr) => {
   let co = 0;
   let co2 = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -183,13 +186,13 @@ const secondTranspose = arr => {
 secondTranspose([
   [1, 2, 3],
   [5, 4, 3],
-  [3, 2, 5]
+  [3, 2, 5],
 ]);
 
-var intersect = function(nums1, nums2) {
+var intersect = function (nums1, nums2) {
   let arr = [];
 
-  let res = nums2.filter(v => {
+  let res = nums2.filter((v) => {
     if (nums1.includes(v)) arr.push(v);
   });
   // if (nums2.length < 2 || nums1.length < 2) {
@@ -204,7 +207,7 @@ var intersect = function(nums1, nums2) {
 // console.log(intersect([1, 2, 2, 1], [2]));
 // console.log(intersect([1, 2, 2, 1], [1, 2]));
 
-const perfectSquare = nums => {
+const perfectSquare = (nums) => {
   let res = Math.sqrt(nums);
   let dot = ".";
   let string = res.toString();
@@ -224,7 +227,7 @@ const findJudge = (trust, N) => {
     if (trust[c][0] !== trust[c][1]) {
       if (trust[c][1] <= N) {
         if (trust.length === N) {
-          let same = trust.every(v => v !== trust[0]);
+          let same = trust.every((v) => v !== trust[0]);
           let answ = same === false ? -1 : N;
           return answ;
         }
@@ -242,7 +245,7 @@ const findJudge = (trust, N) => {
     return a;
   }, {});
   let max = Math.max(...Object.values(res));
-  let found = Object.keys(res).filter(v => res[v] === max);
+  let found = Object.keys(res).filter((v) => res[v] === max);
 
   if (found.length > 1) {
     return -1;
@@ -341,7 +344,7 @@ const removeKDigits = (num, k) => {
   let numArray = [...num];
   let arr = [];
   let max = Math.max(...numArray);
-  let min = numArray.filter(v => v.indexOf(max) === -1);
+  let min = numArray.filter((v) => v.indexOf(max) === -1);
   for (let i = 0; i < num.length; i++) {
     // console.log(max);
     if (num.length === k) {
@@ -364,9 +367,264 @@ const removeKDigits = (num, k) => {
     }
   }
 };
-console.log(removeKDigits("1432219", 3));
-console.log(removeKDigits("10200", 1));
-console.log(removeKDigits("10", 2));
-console.log(removeKDigits("112", 1));
-console.log(removeKDigits("1173", 2));
-console.log(removeKDigits("5337", 2));
+// console.log(removeKDigits("1432219", 3));
+// console.log(removeKDigits("10200", 1));
+// console.log(removeKDigits("10", 2));
+// console.log(removeKDigits("112", 1));
+// console.log(removeKDigits("1173", 2));
+// console.log(removeKDigits("5337", 2));
+
+const maxSubarraySumCircular = (A) => {
+  let count = 0;
+  let arr = [];
+  let len = 4;
+  for (let i = 0; i < A.length; i++) {
+    let res = A.splice(i--, 2);
+    // let secRes = A.splice(i--,3)
+    arr.push(res);
+    // return A
+  }
+  // console.log(arr);
+};
+// console.log(maxSubarraySumCircular([2, -1, 3, -2]));
+// maxSubarraySumCircular([5, -3, 5]);
+// maxSubarraySumCircular([3, -2, 2, -3]);
+// maxSubarraySumCircular([-2,-3,-1]);
+
+let obj = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null,
+      },
+    },
+  },
+};
+
+let obj2 = {
+  val: 1,
+  next: {
+    val: 2,
+    next: {
+      val: 3,
+      next: [1, 2, 3],
+    },
+  },
+};
+// ListNode {
+//   val: 1,
+//   next:
+//    ListNode { val: 2, next: ListNode { val: 3, next: [ListNode] } } }
+const oddEvenList = (head) => {
+  let arr = [];
+  let arrWrapEven = [];
+  let arrWrapOdd = [];
+
+  while (head) {
+    arr.push(head.val);
+    head = head.next;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      // console.log(i);
+      arrWrapEven.push(arr[i]);
+    } else {
+      arrWrapOdd.push(arr[i]);
+    }
+    let result = arrWrapEven.concat(arrWrapOdd);
+    // console.log(result);
+  }
+};
+// console.log(oddEvenList(obj));
+function printList(list) {
+  let tmp = list;
+
+  while (tmp) {
+    // console.log(tmp.val);
+    tmp = tmp.next;
+  }
+}
+
+printList(obj2);
+
+// console.log(oddEvenList(obj));
+const myfun = () => {
+  //measuring of the time execution for a function
+  let result = [1, 2, 3, 4, 5];
+  console.time("object");
+  let start = Date.now();
+  for (let i in result) {
+    console.log(result[i]);
+  }
+  let end = Date.now();
+  let res = end - start;
+  console.log(res);
+  console.timeEnd("object");
+};
+// myfun();
+
+let company = {
+  // the same object, compressed for brevity
+  sales: [
+    { name: "John", salary: 1000 },
+    { name: "Alice", salary: 600 },
+  ],
+  development: {
+    sites: [
+      { name: "Peter", salary: 2000 },
+      { name: "Alex", salary: 1800 },
+    ],
+    internals: [{ name: "Jack", salary: 1300 }],
+  },
+};
+
+function sumSalaries(department) {
+  if (Array.isArray(department)) {
+    // case (1)
+    return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+  } else {
+    // case (2)
+    let sum = 0;
+    for (let subdep of Object.values(department)) {
+      sum += sumSalaries(subdep); // recursively call for subdepartments, sum the results
+    }
+    return sum;
+  }
+}
+// console.log(sumSalaries(company));
+
+const Anagram = (s, p) => {
+  let splitArr = [...s];
+  let arr = [];
+  console.time("anagram");
+  for (let i = 0; i < splitArr.length; i++) {
+    let res = splitArr.splice(i--, p.length);
+    console.log(res[0]);
+    let result = res.sort().filter((a, b, c) => {
+      if (p.indexOf(a) === b) {
+        return c.join("") === p;
+      }
+    });
+    if (result.length != 0) {
+      arr.push(result);
+    }
+  }
+
+  console.timeEnd("anagram");
+  return arr;
+};
+// console.log(Anagram("cbaebabacd", "abc")); //[0, 6]
+// console.log(Anagram("abab", "ab")); ////[0, 1, 2]
+
+const findAnagram = (strOne, strTwo) => {
+  let sortA = strOne.split("").sort();
+  let sortB = strTwo.split("").sort();
+  // console.log("sortA", sortA);
+  // console.log("sortB", sortB);
+};
+findAnagram("LisTen12", "silent");
+
+var checkInclusion = function (s1, s2) {
+  let arr = [];
+  let sortS1 = [...s1].sort();
+
+  let splitS2 = [...s2];
+  let splitS1 = [...s1];
+  let reverse = splitS2.reverse();
+  for (let i = 0; i < reverse.length; i++) {
+    if (s1.indexOf(splitS2[i]) !== -1) {
+      let res = splitS2.splice(i, s1.length);
+      // console.log(res);
+      let result = res.sort().join("") === sortS1.join("");
+      return result;
+    }
+  }
+};
+// console.log(checkInclusion("ab", "eidbaooo"));
+// console.log(checkInclusion("ab", "eidboaoo"));
+// console.log(checkInclusion("c", "eidboacoo"));
+// console.log(checkInclusion("adc", "dcda"));
+// console.log(checkInclusion("a", "ab"));
+// console.log(checkInclusion("abc", "cccccbabbbaaaa")); //test case failed
+
+const frequencySort = (string) => {
+  let conVerttoArray = [...string];
+  let co = 0;
+  let obj = {};
+  let res = conVerttoArray.reduce((a, b, i) => {
+    console.log();
+
+    a[b] = a[b] + 1 || 1;
+    return a;
+  }, {});
+  return res;
+};
+// console.log(frequencySort("tree"));
+// console.log(frequencySort("cccaaa"));
+// console.log(frequencySort("cacaca"));
+
+var busyStudent = function (startTime, endTime, queryTime) {
+  let count = 0;
+  for (let i = 0; i < startTime.length; i++) {
+    if (startTime.length === endTime.length) {
+      if (startTime.length === 1) {
+        if (endTime[i] >= queryTime) {
+          count++;
+        }
+      }
+      if (endTime[i] - startTime[i] >= queryTime) {
+        count++;
+      }
+    }
+    // let res = endTime[i] - startTime[i] >= queryTime;
+    console.log(res);
+  }
+  return count;
+};
+// console.log(busyStudent([1, 2, 3], [3, 2, 7], 4));
+// console.log(busyStudent([1, 1, 1.1], [1, 3, 2, 4], 7));
+// console.log(busyStudent([4], [4], 4));
+// console.log(busyStudent([4], [4], 5));
+// console.log(busyStudent([17], [86], 39));
+// console.log(
+//   busyStudent(
+//     [9, 8, 7, 6, 5, 4, 3, 2, 1],
+//     [10, 10, 10, 10, 10, 10, 10, 10, 10],
+//     5
+//   )
+// );
+
+var arrangeWords = function (text) {
+  console.time("word");
+  let splitText = text.split(" ");
+  let wordWrapper = "";
+  let makeUpperCase;
+  let sortByLength = splitText.sort((a, b) => a.length - b.length);
+  const [first, ...others] = sortByLength;
+  if (first[1]) {
+    makeUpperCase = first[0].toUpperCase() + first.substr(1);
+  } else {
+    makeUpperCase = first[0].toUpperCase();
+  }
+  let makeLowerCase = others.join(" ").toLowerCase();
+  wordWrapper += `${makeUpperCase} ${makeLowerCase}`;
+  console.timeEnd("word");
+  return wordWrapper;
+};
+
+// console.log(arrangeWords("To be or not to be"));
+// console.log(arrangeWords("Keep calm and code on"));
+// console.log(arrangeWords("Leetcode is cool"));
+// console.log(arrangeWords("You and i"));
+// console.log(arrangeWords("The fox runs"));
+
+const powOfFour = (num) => {
+  console.log(Math.pow());
+  return Math.log2(num) % 1 === 0;
+};
+// console.log("powOfFour", powOfFour(2));

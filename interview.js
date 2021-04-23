@@ -8,7 +8,7 @@ function Factorial(num) {
 // console.log(Factorial(7));
 
 function getIndex(...arr) {
-  let res = arr.map(v => {
+  let res = arr.map((v) => {
     len = arr.length - 1;
   });
   return arr[len];
@@ -17,11 +17,12 @@ function getIndex(...arr) {
 
 function getVowelSound(arr, string) {
   let co = 0;
+  let sprint = string.split("");
   let arr2 = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (string.toLowerCase().includes(arr[i])) {
+  for (let i = 0; i < sprint.length; i++) {
+    if (arr.includes(sprint[i].toLowerCase())) {
       co++;
-      arr2.push(arr[i]);
+      arr2.push(sprint[i]);
     }
   }
   // console.log(arr2);
@@ -29,11 +30,11 @@ function getVowelSound(arr, string) {
 }
 getVowelSound(["a", "e", "i", "o", "u"], "chibuIkE");
 
-const maxString = string => {
+const maxString = (string) => {
   let strSplit = string.split(" ");
-  let len = strSplit.map(v => v.length);
+  let len = strSplit.map((v) => v.length);
   let max = Math.max(...len);
-  filMax = strSplit.filter(n => n.length === max);
+  filMax = strSplit.filter((n) => n.length === max);
   return filMax;
 };
 // console.log(maxString("I will do it cos am a developer"));
@@ -42,7 +43,7 @@ function flatterArrays(array) {
   let arr = array
     .toString()
     .split(",")
-    .map(v => v);
+    .map((v) => v);
   return arr;
 }
 // console.log(flatterArrays([1, 2, [3, [4, 5]], 6, 7, [8, [9], 10]]));
@@ -56,10 +57,10 @@ const getIndexOfNumAddedToGetTarget = (nums, target) => {
       }
       if (nums[index] + nums[secIndex] === target) {
         arr.push(index);
-        // console.log(nums[index]);
       }
     }
   }
+  console.log(arr);
   // console.log(arr);
 
   //   nums.map((v, i, c) => {
@@ -74,9 +75,9 @@ const getIndexOfNumAddedToGetTarget = (nums, target) => {
   //   });
   // console.log(arr);
 };
-getIndexOfNumAddedToGetTarget([3, 2, 4], 6);
+// getIndexOfNumAddedToGetTarget([3, 2, 4], 5);
 
-const get3sumequaltoZero = nums => {
+const get3sumequaltoZero = (nums) => {
   let arr = [];
   let arr2 = [];
   for (i = 0; i < nums.length; i++) {
@@ -94,7 +95,7 @@ const get3sumequaltoZero = nums => {
   if (arr.length === 0) {
     return arr;
   }
-  arr.every(v => {
+  arr.every((v) => {
     return v === 0;
   });
   let firstSlice = arr.slice(0, 6);
@@ -132,7 +133,7 @@ const getClosestSumToTheTarget = (nums, target) => {
   }
   return arr;
 };
-// // console.log(getClosestSumToTheTarget([-1, 2, 1, -4], 1));
+// console.log(getClosestSumToTheTarget([-1, 2, 1, -4], 1));
 // console.log(getClosestSumToTheTarget([0, 0, 0], 1));
 // console.log(getClosestSumToTheTarget([0], 1));
 
@@ -154,22 +155,13 @@ const getClosestSumToTheTarget = (nums, target) => {
 
 const returnIndexofAtargetedValue = (arr, target) => {
   let arr2 = [];
-  // for (let index in arr) {
-  //   if (arr[index] === target) {
-  //     arr2.push(index);
-  //   }
-  // }
-  // if (arr2.length > 0) {
-  //   return arr2.join("");
-  // }
-  // else {
   let res = arr.concat(target);
   let sort = res.sort((a, b) => a - b);
   for (let index in sort) {
+    // console.log(sort);
     if (sort[index] === target) {
       return index;
     }
-    // }
   }
 };
 // console.log(returnIndexofAtargetedValue([1, 3, 5, 6], 2));
@@ -201,7 +193,7 @@ const returnIndexofAtargetedValue = (arr, target) => {
 //     .split(",")
 //     .map(v => parseInt(v));
 // };
-const addOneToTheLastVAlueInTheArray = arr => {
+const addOneToTheLastVAlueInTheArray = (arr) => {
   let len = arr.length - 1;
   let result;
   result = arr[len];
@@ -229,7 +221,7 @@ const addOneToTheLastVAlueInTheArray = arr => {
 };
 // console.log(addOneToTheLastVAlueInTheArray([5, 2, 6, 7, 9]), "this value");
 
-const stringReversal = str => {
+const stringReversal = (str) => {
   let result = [];
   let length = str.length - 1;
   for (let i = length; i >= 0; i--) {
@@ -239,7 +231,7 @@ const stringReversal = str => {
 };
 // console.log(stringReversal(["chi", "chioma", "tochi", "ebere"]));
 
-const capitalizeTheFirstLetterInString = str => {
+const capitalizeTheFirstLetterInString = (str) => {
   let splitStr = str.split(" ");
   // console.log(splitStr);
   for (let values in splitStr) {
@@ -254,18 +246,18 @@ const capitalizeTheFirstLetterInString = str => {
 };
 capitalizeTheFirstLetterInString("he is a very good boy");
 
-const capitalizeTheFirstLetterInStrings = str => {
+const capitalizeTheFirstLetterInStrings = (str) => {
   let splitStr = str.split(" ");
   let word = [];
   for (let values of splitStr) {
     word.push(values[0].toUpperCase() + values.slice(1));
   }
-  return word;
+  return word.join(" ");
 };
 
 // console.log(capitalizeTheFirstLetterInStrings("he is a very good boy"));
 
-const IntegerReserver = nums => {
+const IntegerReserver = (nums) => {
   arr = [];
   let len = nums.length - 1;
   let res = nums.toString().split(" ");
@@ -277,59 +269,53 @@ const IntegerReserver = nums => {
         .split(",")
         .slice(1)
         .reverse()
-        .map(v => v)
+        .map((v) => v)
         .join("");
       let finalResult = index.concat(rest);
       return finalResult;
     } else {
-      let withoutAssignment = values
-        .toString()
-        .split(",")
-        .reverse();
+      let withoutAssignment = values.toString().split(",").reverse();
       return withoutAssignment;
     }
   }
 };
 // console.log(IntegerReserver(["-", 1, 2]));
 
-const reverseInt = int => {
-  const reverse = int
-    .toString()
-    .split("")
-    .reverse()
-    .join("");
+const reverseInt = (int) => {
+  const reverse = int.toString().split("").reverse().join("");
 
-  return parseInt(reverse) * Math.sign(int);
+  return parseInt(reverse) >= 2 ** 31 ? 0 : parseInt(reverse) * Math.sign(int);
 };
-// console.log(reverseInt(-15));
+// console.log(reverseInt(-35));
+
 // return interger and return 0 if the ingeger overflows
-var reverse = x => {
+var reverse = (x) => {
   const s = parseInt([...("" + x)].reverse().join(""));
   return s >= 2 ** 31 ? 0 : Math.sign(x) * s;
 };
+
 const arrayChucks = (array, num) => {
   let arr = [];
   for (let i = 0; i < array.length; i++) {
     let res = array.splice(i--, num);
     arr.push(res);
-    continue;
   }
   if (array.length === 0) {
     return arr;
   }
-  arr.push(array);
+  // arr.push(array);
   return arr;
 };
 // console.log(arrayChucks([1, 2, 3, 4, 6, 6, 7], 2));
 
-const returnSumOfInput = num => {
+const returnSumOfInput = (num) => {
   let count = 0;
   for (let i = 1; i <= num; i++) {
     count += i;
   }
-  // console.log(count);
+  console.log(count);
 };
-returnSumOfInput(4);
+returnSumOfInput(3);
 //return a function that returns string
 function str(str) {
   const returnFunctionThatReturnsStr = () => str;
@@ -354,7 +340,8 @@ const findLuckynume = (...arr) => {
     return a;
   }, {});
   let max = Math.max(...Object.values(res));
-  let objValues = Object.keys(res).filter(v => res[v] === max);
+  let objValues = Object.keys(res).filter((v) => res[v] === max);
+  // console.log(objValues);
   if (parseInt(objValues) === max) {
     return parseInt(objValues);
   } else if (parseInt(objValues) !== max) {
@@ -363,7 +350,6 @@ const findLuckynume = (...arr) => {
     return -1;
   }
 };
-// console.log(objValues);
 // console.log(findLuckynume(2, 2, 3, 4));
 // console.log(
 //   findLuckynume(
@@ -402,20 +388,20 @@ const findLuckynume = (...arr) => {
 let data = [
   {
     principal: 2500,
-    time: 1.8
+    time: 1.8,
   },
   {
     principal: 1000,
-    time: 5
+    time: 5,
   },
   {
     principal: 3000,
-    time: 1
+    time: 1,
   },
   {
     principal: 2000,
-    time: 3
-  }
+    time: 3,
+  },
 ];
 
 const getRate = ({ principal, time }) => {
@@ -424,7 +410,7 @@ const getRate = ({ principal, time }) => {
   if (principal < 2500 || time <= 1) return 2;
   return 1;
 };
-const interestCaculator = arr => {
+const interestCaculator = (arr) => {
   let interestData = [];
   arr.forEach(({ principal, time }) => {
     let rate = getRate({ principal, time });
@@ -449,9 +435,9 @@ function num(nums) {
 }
 // console.log(num([1, 1, 2]));
 
-var returnNumberWithOutWordAndWhitespace = function(str) {
+var returnNumberWithOutWordAndWhitespace = function (str) {
   let num = "1234567890";
-  let result = [..."", parseInt(str.trim())].every(v => !isNaN(v));
+  let result = [..."", parseInt(str.trim())].every((v) => !isNaN(v));
   let trim;
   if (result) {
     trim = str.trim();
@@ -459,12 +445,24 @@ var returnNumberWithOutWordAndWhitespace = function(str) {
   } else {
     let nums = num.split("");
 
-    // return res;
+    return nums;
   }
 };
 // console.log(returnNumberWithOutWordAndWhitespace(" woird -42"));
 
-var searchRange = function(nums, target) {
+const returnwordswithOutwhiteSpaces = (str) => {
+  let split = str.trim().split("");
+  let arr = [];
+  for (let i = 0; i < split.length; i++) {
+    if (Number(split[i])) {
+      arr.push(split[i]);
+    }
+  }
+  // console.log("arr", Number(arr.join("")));
+};
+returnwordswithOutwhiteSpaces("wo67rd         43");
+
+var searchRange = function (nums, target) {
   let res = nums.sort((a, b) => a - b);
   let arr = [];
 
@@ -479,16 +477,16 @@ var searchRange = function(nums, target) {
 
   return arr;
 };
-// console.log(searchRange([5, 7, 7, 8, 8, 10], 5));
-// console.log(searchRange([1], 0));
+// console.log(searchRange([5, 7, 7, 8, 8, 10], 8));
+// console.log(searchRange([1], 1));
 
-var checkRecord = function(s) {
+var checkRecord = function (s) {
   let splitString = s.split("");
   let count = 0;
   let arr = [];
   let arr2 = [];
   let arr3 = [];
-  splitString.map(v => {
+  splitString.map((v) => {
     if (v.includes("A")) {
       count++;
       arr.push(count);
@@ -512,18 +510,15 @@ var checkRecord = function(s) {
 // console.log(checkRecord("AA"));
 // console.log(checkRecord("LALL"));
 
-const permutations = arr => {
+const permutations = (arr) => {
   let emptArr = [];
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
       for (let h = 0; h < arr.length; h++) {
-        if (i === j && j === h) {
-          continue;
-        }
         emptArr.push([arr[i], arr[j], arr[h]]);
       }
     }
   }
   // console.log(emptArr);
 };
-permutations([1, 2, 3]);
+permutations([1, 2]);

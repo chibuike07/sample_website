@@ -1,18 +1,20 @@
+const { wrap } = require("module");
+
 let array = [1, 2, 3, 4, 5, 3, 2];
 
-const red = arr => {
+const red = (arr) => {
   return arr.reduce((acum, currentValue, index, array) => {
     return acum + currentValue;
   }, 0);
 };
 // console.log(red(array));
-const addingObjectValues = arr => {
+const addingObjectValues = (arr) => {
   return arr.reduce((acum, currentValue, index, array) => {
     return acum + currentValue.item;
   }, 0);
 };
-console.log(addingObjectValues([{ item: 1 }, { item: 2 }, { item: 3 }]));
-const flatterArr = arr => {
+// console.log(addingObjectValues([{ item: 1 }, { item: 2 }, { item: 3 }]));
+const flatterArr = (arr) => {
   let result = arr.reduce((acum, currentValue, index, array) => {
     return acum.concat(currentValue);
   }, []);
@@ -22,10 +24,10 @@ console.log(
   flatterArr([
     [0, 1],
     [1, 3],
-    [4, 5]
+    [4, 5],
   ])
 );
-const removeDup = arr => {
+const removeDup = (arr) => {
   return arr.reduce((acum, cur) => {
     if (acum.indexOf(cur) === -1) {
       acum.push(cur);
@@ -33,7 +35,7 @@ const removeDup = arr => {
     return acum;
   }, []);
 };
-console.log(removeDup(["1", "2", "3", "2", "1", "5", "6", "2"]));
+// console.log(removeDup(["1", "2", "3", "2", "1", "5", "6", "2"]));
 
 const sumTarget = (arr, target) => {
   let arrs = [];
@@ -61,11 +63,12 @@ const sumTarget = (arr, target) => {
 };
 // console.log(sumTarget([1, 2, 3, 4, 5, 6, 7], 7));
 
-const makeKeyAndValueWithReduce = array => {
+const makeKeyAndValueWithReduce = (array) => {
   let res = array.reduce((wrapper, currentValue, currentIndex) => {
-    currentValue - wrapper;
+    // currentValue - wrapper;
+    wrapper + currentValue;
     return wrapper;
   });
   return res;
 };
-console.log(makeKeyAndValueWithReduce(["1", "2", "3", "4", "5", "6", "7"]));
+// console.log(makeKeyAndValueWithReduce(["1", "2", "3", "4", "5", "6", "7"]));

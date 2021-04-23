@@ -10,9 +10,9 @@ var arr = [1, 2, 3, 2, 1, 6, 5];
 var obj = {}; //assigning an object
 var arr2 = ["chi", "you", "me"];
 obj2 = {};
-var makeKey = function() {
+var makeKey = function () {
   // if(arr instanceof Array){
-  arr.forEach(function(v, i) {
+  arr.forEach(function (v, i) {
     //looping each element in the array
     //assigning a condition for each element
     if (!obj[v]) {
@@ -22,12 +22,12 @@ var makeKey = function() {
     }
   });
   //loop inside the obj to extract the key of the array and making the length of each element its value
-  Object.keys(obj).map(function(v) {
+  Object.keys(obj).map(function (v) {
     obj[v] = obj[v].length; //
   });
 
   // console.log(obj);
-  arr2.map(function(o, r) {
+  arr2.map(function (o, r) {
     obj2[o] = o.length;
   });
   // console.log(obj2);
@@ -36,7 +36,7 @@ var makeKey = function() {
 };
 makeKey();
 
-var a = arr.every(function(v, i, a) {
+var a = arr.every(function (v, i, a) {
   return v === 7;
 });
 // console.log(a);
@@ -52,7 +52,7 @@ var skip2 = ([, a, b, ...xd] = arr);
 // console.log(a,b, xd)
 function filters() {
   var arr = ["a", 1, 2, "1", "a", 1];
-  var uniq = arr.filter(function(v, i, a) {
+  var uniq = arr.filter(function (v, i, a) {
     // console.log(a)
     return a.indexOf(a) === i;
   });
@@ -73,10 +73,10 @@ var bClon = Array.prototype.slice.call(destru);
 // console.log(bClon);
 
 let arrSpre = [..."123456"];
-var sprd = arrSpre.map(n => parseInt(n));
+var sprd = arrSpre.map((n) => parseInt(n));
 // console.log(sprd);
 
-var j = arr.filter(v => v > 3);
+var j = arr.filter((v) => v > 3);
 // console.log(j);
 
 var filtered = [0, undefined, {}, null, "", true, 5];
@@ -95,7 +95,7 @@ var strLop = str.split(" ");
 var wordsStartsWithA = strLop.filter(startWithA);
 console.log(wordsStartsWithA);
 for (g of wordsStartsWithA) {
-  // console.log(g)
+  // console.log(g);
 }
 
 // console.log(arr)
@@ -113,13 +113,13 @@ for (y of arr.entries()) {
   // console.log(y);
 }
 // remove the value of array
-var v = arr.filter(val => {
+var v = arr.filter((val) => {
   return val !== 5;
 });
 // console.log(v);
 
 function length(array) {
-  let r = array.filter(function(b) {
+  let r = array.filter(function (b) {
     return b % 2 !== 0 && b % 3 !== 0 && b > !15;
   });
   return r;
@@ -142,7 +142,7 @@ isarr({});
 var arrK = ["name", "state", "age"];
 var arrV = ["james", "lagos", "20"];
 function merge2ArrayAsKeyValuePair() {
-  let r = arrV.reduce(function(result, field, index) {
+  let r = arrV.reduce(function (result, field, index) {
     // console.log(v)
     result[arrK[index]] = field;
     return result;
@@ -157,17 +157,17 @@ var objSearch = [
   { name: "frank", age: 12 },
   { name: "peter", age: 15 },
   { name: "willy", age: 12 },
-  { name: "prince", age: 23 }
+  { name: "prince", age: 23 },
 ];
 function searchArray() {
-  let r = objSearch.find(function(v) {
+  let r = objSearch.find(function (v) {
     return v.age === 12;
   });
   // console.log(r);
 }
 searchArray(this);
 function filterSearchCriteria() {
-  let e = objSearch.filter(function(a, i) {
+  let e = objSearch.filter(function (a, i) {
     // console.log(i)
     return a.age === 23;
   });
@@ -176,7 +176,7 @@ function filterSearchCriteria() {
 filterSearchCriteria(this);
 
 function findIndex() {
-  let r = objSearch.findIndex(function(a) {
+  let r = objSearch.findIndex(function (a) {
     return a.name === "prince";
   });
   // console.log(r);
@@ -184,7 +184,7 @@ function findIndex() {
 findIndex(this);
 
 function fndIndx(array, num) {
-  let r = array.findIndex(function(a) {
+  let r = array.findIndex(function (a) {
     return num == a;
   });
   // console.log(r);
@@ -245,10 +245,10 @@ function differenceInArr(array1, array2) {
   var temp = [];
   array1 = String(array1)
     .split(",")
-    .map(num => num);
+    .map((num) => num);
   array2 = String(array2)
     .split(",")
-    .map(num => num);
+    .map((num) => num);
 
   for (i in array1) {
     if (array2.indexOf(array1[i]) === -1) {
@@ -261,7 +261,7 @@ function differenceInArr(array1, array2) {
       temp.push(array2[r]);
     }
   }
-  let p = temp.sort(function(a, b) {
+  let p = temp.sort(function (a, b) {
     a - b;
   });
   // console.log(p);
@@ -286,13 +286,13 @@ const romanFiqure = (romanObject, num) => {
       //condition if the String num length is 1
       lengthOf1StrRomanHolder = Object.keys(romanObject).filter(
         // getting the keys to the obj and filter the values to get the key that matches the string nums and having a stringWrapper to hold it
-        v => romanObject[v] === Number(numToString.substr(0.1))
+        (v) => romanObject[v] === Number(numToString.substr(0.1))
       );
     } else if (numToString.length === 2) {
       //condition if the String num length is 2
       let res = numToString.split(""); //convert to stringNum to an array
       lengthOf2ArrWrapper.push(res[0] + 0, res[1]); //adding 0 to the first array to be able to get 10, 20 and they kind that will match the ObjectKeys and add the secValue to it for lookup as well
-      let pure = lengthOf2ArrWrapper.map(v => parseInt(v)); //converting the strNum Value to an integer bcos the values are to be compared with an integer only
+      let pure = lengthOf2ArrWrapper.map((v) => parseInt(v)); //converting the strNum Value to an integer bcos the values are to be compared with an integer only
       if (pure.includes(romanObject[keys])) {
         //check if the values of the romanObject includes our nums values
         lengthOf2StrRomanHolder = [...keys, ...lengthOf2StrRomanHolder];
@@ -302,7 +302,7 @@ const romanFiqure = (romanObject, num) => {
       //if is length of 3 like 500 and 219, 316 and so on
       let res = numToString.split(""); //converting to an array
       lengthOf3ArrWrapper.push(res[0] + 0 + 0, res[1] + 0, res[2]); //adding 00 to the first array to be able to get 100, 200 and they kind that will match the ObjectKeys and add does the same to the secValue and third for look up
-      let integ = lengthOf3ArrWrapper.map(v => parseInt(v)); //convert to integer
+      let integ = lengthOf3ArrWrapper.map((v) => parseInt(v)); //convert to integer
       if (integ.includes(romanObject[keys])) {
         // checking for ones included in the arrintegerNums
         lengthOf3StrRomanHolder = [...keys, ...lengthOf3StrRomanHolder]; //sprind the keys and adding the spread strHoder
@@ -315,7 +315,7 @@ const romanFiqure = (romanObject, num) => {
         res[2] + 0,
         res[3]
       );
-      let lengthOf4Int = lengthOf4ArrWrapper.map(v => parseInt(v));
+      let lengthOf4Int = lengthOf4ArrWrapper.map((v) => parseInt(v));
       if (lengthOf4Int.includes(romanObject[keys])) {
         lengthOf4IntStrHolder = [...keys, ...lengthOf4IntStrHolder];
       }
@@ -351,12 +351,12 @@ romanFiqure(
     D: 500,
     CM: 900,
     M: 1000,
-    k: 2000
+    k: 2000,
   },
   34
 );
 
-function romanize(num) {
+function intToRoman(num) {
   var lookup = {
       M: 1000,
       CM: 900,
@@ -370,7 +370,7 @@ function romanize(num) {
       IX: 9,
       V: 5,
       IV: 4,
-      I: 1
+      I: 1,
     },
     roman = "",
     i;
